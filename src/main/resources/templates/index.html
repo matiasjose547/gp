@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Usuários</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .vazio {
+            color: #777;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sistema de Usuários</h1>
+</header>
+
+<main>
+
+    <h2>Lista de usuários</h2>
+
+    <ul>
+        <li th:each="user : ${users}"
+            th:text="${users}">
+            Nome do usuário
+        </li>
+    </ul>
+
+    <p class="vazio"
+       th:if="${#lists.isEmpty(users)}">
+        Nenhum usuário cadastrado.
+    </p>
+
+</main>
+
+</body>
+</html>
